@@ -1,0 +1,144 @@
+.navbar-information {
+  background: $white-bg;
+  backdrop-filter: blur(25px);
+  border: 1px solid $third;
+  border-radius: 16px;
+  height: 100%;
+}
+
+.information-search {
+  width: 287px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+
+.information-icon-search {
+  position: absolute;
+  right: 3%;
+  border: 0;
+  background: none;
+  color: white;
+}
+
+.information-icon-btn {
+  border: 0;
+  &:hover {
+    svg {
+      filter: drop-shadow(0 0 5px #fff);
+    }
+  }
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+tbody {
+  background-color: transparent;
+}
+
+thead {
+  background-color: $white-bg;
+  color: white;
+  border: 1px solid $third;
+  & th {
+    border-top: 1px solid $third;
+    border-bottom: 1px solid $third;
+    &:not(:first-child) {
+      border-left: 0;
+    }
+    &:not(:last-child) {
+      border-right: 0;
+    }
+    &:first-child {
+      border-top-left-radius: 16px;
+      border-bottom-left-radius: 16px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 16px;
+      border-bottom-right-radius: 16px;
+    }
+  }
+}
+
+.btn-edit-close {
+  background: none;
+  color: white;
+  border: 0;
+  &:focus {
+    box-shadow: none;
+  }
+  &:hover {
+    filter: drop-shadow(0 0 5px #fff);
+  }
+}
+
+.swal {
+  &-popup {
+    background-color: rgb(54, 42, 42) !important;
+  }
+  &-title {
+    color: white !important;
+  }
+}
+
+.page-link {
+  color: white;
+  background-color: $third;
+  border: 1px solid $third;
+  &:hover {
+    color: white;
+    background-color: black;
+    border: 1px solid $third;
+  }
+}
+
+.pagination {
+  --bs-pagination-active-bg: #ffcf31;
+  --bs-pagination-disabled-bg: $third;
+  --bs-pagination-focus-bg: $third;
+  --bs-pagination-active-color: black;
+}
+
+// 滾動條樣式
+.admin-scrollbar::-webkit-scrollbar {
+  height: 12px;
+  // 軌道背景
+  &-track {
+    background: transparent;
+  }
+  // 滾輪設置
+  &-thumb {
+    background-color: $black;
+    border-radius: 6px;
+    &:hover {
+      background-color: $white-bg;
+    }
+  }
+}
+
+// 滾動條樣式
+.admin-modal-scrollbar::-webkit-scrollbar {
+  width: 12px;
+  // 軌道背景
+  &-track {
+    background: transparent;
+  }
+  // 滾輪設置
+  &-thumb {
+    background-color: $black;
+    border-radius: 6px;
+    &:hover {
+      background-color: $white-bg;
+    }
+  }
+}
+
+.admin-name-bottom {
+  border-bottom: 1px solid $third;
+}

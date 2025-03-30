@@ -1,0 +1,42 @@
+.membercenter-mx-12 {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+.membercenter-content-p {
+    padding-top: 144px;
+    padding-bottom: 160px;
+}
+.membercenter-title-color {
+    color: rgba(162, 162, 162, 1);
+}
+.membercenter-tab-style {
+    background-color: rgba(83, 81, 81, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.membercenter-button-style {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+}
+.membercenter-border-color {
+    border-color: rgba(255, 255, 255, 0.05) !important;
+}
+.membercenter-edit-tab {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+    .member-header {
+        flex-direction: column-reverse !important;
+    }
+    .avatar {
+        flex-direction: row !important;
+        justify-content: space-between;
+    }
+    .plan-edit {
+        justify-content: space-between;
+    }
+    .membercenter-content-p {
+        padding-top: 124px;
+        padding-bottom: 96px;
+    }
+}

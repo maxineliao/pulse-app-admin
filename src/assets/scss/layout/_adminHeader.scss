@@ -1,0 +1,21 @@
+.navbar-adminheader {
+  background: $white-bg;
+  backdrop-filter: blur(25px);
+  border: 1px solid $third;
+  border-radius: 16px;
+  height: 100%;
+}
+
+.list-item-hover {
+  &:hover {
+    background-color: lighten($third, 40%);
+  }
+}
+
+.no-scroll-x {
+  overflow-x: hidden;
+}
+
+.list-unstyled .active {
+  background-color: lighten($third, 40%);
+}

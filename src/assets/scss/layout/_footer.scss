@@ -1,0 +1,21 @@
+.footer {
+	padding-block: 24px;
+	.img {
+		width: 80px;
+	}
+	.scroll-top {
+		width: 80px;
+		height: 80px;
+	}
+	.content {
+		width: 100%;
+	}
+}
+@media screen and (min-width: 576px) {
+	.footer {
+		padding-block: 40px;
+		.content {
+			width: fit-content;
+		}
+	}
+}
