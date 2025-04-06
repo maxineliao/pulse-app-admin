@@ -19,7 +19,7 @@ export default function AdminHeader() {
             <div className="w-100 d-flex flex-column flex-grow-1">
               <NavLink
                 className="py-5 d-flex justify-content-center"
-                to="/"
+                to="/admin/AdminInformation"
                 title="Logo"
               >
                 <img
