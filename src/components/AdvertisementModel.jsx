@@ -47,7 +47,7 @@ export default function AdvertisementModel({
         );
       }
 
-      customSwal("success", "會員資料儲存成功");
+      customSwal("success", "廣告資料儲存成功");
 
       // 更新本地的使用者資料
       setInfor((prevInfors) =>

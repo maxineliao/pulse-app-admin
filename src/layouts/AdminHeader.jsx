@@ -23,7 +23,7 @@ export default function AdminHeader() {
                 title="Logo"
               >
                 <img
-                  src="../src/assets/images/Logo_w.png"
+                  src="https://storage.googleapis.com/vue-course-api.appspot.com/pulse/1743782972898.png"
                   alt="logo"
                   width={120}
                 />
