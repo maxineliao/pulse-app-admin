@@ -5,9 +5,12 @@ import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { login } from "../slice/authSlice";
+import { useState } from "react";
+import { Loading } from "../components/Loading";
 const VITE_BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function Login() {
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const {
@@ -20,6 +23,7 @@ function Login() {
     signIn(email, password);
   };
   const signIn = async (email, password) => {
+    setIsLoading(true);
     try {
       const url = "https://pulse-web-player.onrender.com/signin";
       const responsePulse = await axios.post(url, {
@@ -58,6 +62,8 @@ function Login() {
       } else {
         customSwal("error", `發生錯誤：${error.response.data}`);
       }
+    } finally {
+      setIsLoading(false);
     }
   };
   const customSwal = (icon, title) => {
@@ -83,6 +89,7 @@ function Login() {
         backgroundPosition: "40% 70%",
       }}
     >
+      {isLoading && <Loading />}
       <div className="container py-8" style={{ minHeight: "100dvh" }}>
         <div className="row d-flex justify-content-center">
           <div className="col-lg-6">

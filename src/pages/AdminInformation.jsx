@@ -4,7 +4,9 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import AdminModel from "../components/AdminModel";
 import Pagination from "../components/Pagination";
+import { Loading } from "../components/Loading";
 export default function AdminInformation() {
+  const [isLoading, setIsLoading] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState("");
 
   const [formData, setFormData] = useState({
@@ -34,6 +36,7 @@ export default function AdminInformation() {
 
   useEffect(() => {
     const fetchUsers = async () => {
+      setIsLoading(true);
       try {
         const response = await axios.get(
           "https://pulse-web-player.onrender.com/users"
@@ -42,6 +45,8 @@ export default function AdminInformation() {
         setUsers(data);
       } catch (error) {
         customSwal("error", `發生錯誤：${error.response.data}`);
+      } finally {
+        setIsLoading(false)
       }
     };
 
@@ -82,6 +87,7 @@ export default function AdminInformation() {
 
   return (
     <>
+      {isLoading && <Loading />}
       <div className="col-9 col-md-10">
         <div className="navbar-information my-5 me-5 d-flex flex-column">
           <div className="m-5">

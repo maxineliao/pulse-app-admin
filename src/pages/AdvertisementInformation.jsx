@@ -3,10 +3,12 @@ import { Search, Pen, Plus } from "lucide-react";
 import Swal from "sweetalert2";
 import axios from "axios";
 import AdvertisementModel from "../components/AdvertisementModel";
+import { Loading } from "../components/Loading";
 const VITE_BASE_URL = import.meta.env.VITE_BASE_URL;
 const VITE_API_PATH = import.meta.env.VITE_API_PATH;
 
 export default function AdvertisementInformation() {
+  const [isLoading, setIsLoading] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState("");
 
   const [formData, setFormData] = useState({
@@ -67,6 +69,7 @@ export default function AdvertisementInformation() {
   const [infor, setInfor] = useState([]);
 
   const getInfor = async () => {
+    setIsLoading(true);
     try {
       const config = {
         headers: { Authorization: localStorage.getItem("Token") },
@@ -79,6 +82,8 @@ export default function AdvertisementInformation() {
       setInfor(data.articles);
     } catch (error) {
       customSwal("error", `發生錯誤：${error.response.data.message}`);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -124,6 +129,7 @@ export default function AdvertisementInformation() {
 
   return (
     <>
+      {isLoading && <Loading />}
       <div className="col-9 col-md-10">
         <div className="navbar-information my-5 me-5 d-flex flex-column">
           <div className="m-5">
