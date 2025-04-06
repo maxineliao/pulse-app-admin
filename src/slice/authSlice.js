@@ -1,20 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+
+const VITE_BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const authSlice = createSlice({
     name: 'auth',
     initialState: {
-        isAuth: !!localStorage.getItem('pulseToken'),
-        memberName: localStorage.getItem('memberName') || 'Pulse Member',
+        isAuth: false,
     },
     reducers: {
         login: (state) => {
             state.isAuth = true;
         },
         logout: (state) => {
+            axios.post(`${VITE_BASE_URL}/v2/logout`);
             state.isAuth = false;
-            localStorage.removeItem('pulseToken');
-            localStorage.removeItem('memberName');
-            localStorage.removeItem('user');
+            localStorage.removeItem('Token');
         }
     }
 })
