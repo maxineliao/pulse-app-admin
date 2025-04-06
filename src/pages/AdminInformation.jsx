@@ -50,13 +50,15 @@ export default function AdminInformation() {
 
   // 獲取當前頁面顯示的資料，加入模糊查詢功能
   const currentPageData = users
-    .filter(
-      (user) =>
-        user.username.includes(searchKeyword) ||
-        user.email.includes(searchKeyword) ||
-        user.plan.includes(searchKeyword) ||
-        user.price.toString().includes(searchKeyword)
-    )
+    .filter((user) => {
+      const keyword = searchKeyword.toLowerCase();
+      return (
+        user.username.toLowerCase().includes(keyword) ||
+        user.email.toLowerCase().includes(keyword) ||
+        user.plan.toLowerCase().includes(keyword) ||
+        user.price.toString().toLowerCase().includes(keyword)
+      );
+    })
     .slice(
       (pageInfo.current_page - 1) * itemsPerPage,
       pageInfo.current_page * itemsPerPage

@@ -91,12 +91,16 @@ export default function AdvertisementInformation() {
 
   // 獲取當前頁面顯示的資料
   const currentPageData = infor
-    .filter(
-      (item) =>
-        item.title.includes(searchKeyword) ||
-        item.description.includes(searchKeyword) ||
-        item.author.includes(searchKeyword)
-    )
+    .filter((item) => {
+      const keyword = searchKeyword.toLowerCase();
+      return (
+        item.title.toLowerCase().includes(keyword) ||
+        item.description.toLowerCase().includes(keyword) ||
+        item.author.toLowerCase().includes(keyword) ||
+        (keyword === "啟用" && item.isPublic === true) ||
+        (keyword === "未啟用" && item.isPublic === false)
+      );
+    })
     .slice(
       (pageInfo.current_page - 1) * itemsPerPage,
       pageInfo.current_page * itemsPerPage
